@@ -11,7 +11,7 @@ ADD hadoop-2.7.2.tar.gz .
 ADD apache-hive-2.3.7-bin.tar.gz .
 
 RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar && \
-    mv hadoop-2.7.2 /usr/local/hadoop && mv apache-hive-2.3.7 /usr/local/hive && \
+    mv hadoop-2.7.2 /usr/local/hadoop && mv apache-hive-2.3.7-bin /usr/local/hive && \
     mv mysql-connector-java-8.0.15.jar /usr/local/hive/lib/
 
 # install hadoop 2.7.2
