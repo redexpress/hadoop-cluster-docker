@@ -1,0 +1,46 @@
+version: '3'
+services:
+  hadoop-master:
+    restart: always
+    image: kiwenlau/hadoop:1.0
+    ports:
+      - 8088:8088
+      - 9000:9000
+      - 50070:50070
+  hadoop-slave1:
+    restart: always
+    image: kiwenlau/hadoop:1.0
+    ports:
+      - 8088:8088
+      - 9000:9000
+      - 50070:50070
+  hadoop-slave2:
+    restart: always
+    image: kiwenlau/hadoop:1.0
+    ports:
+      - 8088:8088
+      - 9000:9000
+      - 50070:50070
+  mysql:
+    restart: always
+    image: mysql:5.7.16
+    container_name: mysql
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: hivedb123
+      MYSQL_DATABASE: hivedb
+      MYSQL_USER: hivedb
+      MYSQL_PASSWORD: hivedb
+      TZ: Asia/Shanghai
+    ports:
+      - 3306:3306
+
+
+
+
+
+
+
+
