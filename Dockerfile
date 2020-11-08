@@ -5,13 +5,14 @@ MAINTAINER KiwenLau <kiwenlau@gmail.com>
 WORKDIR /root
 
 # install openssh-server, openjdk and wget
-RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget nano
+RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget nano iputils-ping curl
 
 ADD hadoop-2.7.2.tar.gz .
 ADD apache-hive-2.3.7-bin.tar.gz .
+COPY mysql-connector-java-8.0.15.jar .
 
-RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar && \
-    mv hadoop-2.7.2 /usr/local/hadoop && mv apache-hive-2.3.7-bin /usr/local/hive && \
+# RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar && \
+RUN mv hadoop-2.7.2 /usr/local/hadoop && mv apache-hive-2.3.7-bin /usr/local/hive && \
     mv mysql-connector-java-8.0.15.jar /usr/local/hive/lib/
 
 # install hadoop 2.7.2
