@@ -7,7 +7,8 @@ WORKDIR /root
 # install openssh-server, openjdk and wget
 RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget nano
 
-ADD hadoop-2.7.2.tar.gz /usr/local/hadoop
+ADD hadoop-2.7.2.tar.gz .
+RUN mv hadoop-2.7.2 /usr/local/hadoop
 
 # install hadoop 2.7.2
 # RUN wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.2/hadoop-2.7.2.tar.gz && \
